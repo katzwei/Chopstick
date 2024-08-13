@@ -1,0 +1,205 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddla5gobppyhl"]
+
+[ext_resource type="Script" path="res://Scripts/setting.gd" id="1_rm7f0"]
+[ext_resource type="FontFile" uid="uid://dq8cr4en05khy" path="res://Assets/Font/Kenney Bold.ttf" id="2_7bot3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43cwd"]
+bg_color = Color(0.698039, 0.466667, 0.192157, 1)
+
+[node name="Setting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_rm7f0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_43cwd")
+
+[node name="MarginContainer1" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Settings" type="Label" parent="PanelContainer/MarginContainer1"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer1"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 100
+
+[node name="MainContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GeneralHead" type="VBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="General" type="Label" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralHead"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 24
+text = "General
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralHead"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GeneralOptions" type="VBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer"]
+layout_mode = 2
+
+[node name="MasterVolume" type="HBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MasterVolumeLabel" type="Label" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 16
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/MasterVolume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../../MusicVolume/MusicVolumeSlider")
+value = 100.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MusicVolumeLabel" type="Label" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 16
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/MusicVolume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../MasterVolume/MasterVolumeSlider")
+focus_neighbor_bottom = NodePath("../../SFXVolume/SFXVolumeSlider")
+value = 100.0
+
+[node name="SFXVolume" type="HBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SFXVolumeLabel" type="Label" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 16
+text = "SFX Volume"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/SFXVolume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../MusicVolume/MusicVolumeSlider")
+focus_neighbor_bottom = NodePath("../../../AccessibilityOptions/CrunchSound")
+value = 100.0
+
+[node name="AccessibilityHead" type="VBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Accessibility" type="Label" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/AccessibilityHead"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 24
+text = "Accessibility
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/AccessibilityHead"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AccessibilityOptions" type="VBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer"]
+layout_mode = 2
+
+[node name="CrunchSound" type="CheckBox" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/AccessibilityOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../GeneralOptions/SFXVolume/SFXVolumeSlider")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/BackButton")
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 16
+text = "Disable crunch sound effect"
+
+[node name="ForkMode" type="CheckBox" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/AccessibilityOptions"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../GeneralOptions/SFXVolume/SFXVolumeSlider")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/BackButton")
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 16
+text = "Use a fork"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../AccessibilityOptions/CrunchSound")
+focus_neighbor_right = NodePath("../QuitButton")
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 24
+text = "Back
+"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../BackButton")
+focus_neighbor_top = NodePath("../../AccessibilityOptions/CrunchSound")
+theme_override_fonts/font = ExtResource("2_7bot3")
+theme_override_font_sizes/font_size = 24
+text = "QUIT"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/MasterVolume/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/MusicVolume/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/GeneralOptions/SFXVolume/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/AccessibilityOptions/CrunchSound" to="." method="_on_crunch_sound_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/AccessibilityOptions/ForkMode" to="." method="_on_fork_mode_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer1/MarginContainer2/MainContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

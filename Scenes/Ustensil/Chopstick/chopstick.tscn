@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b827ght2j43ha"]
+
+[ext_resource type="Script" path="res://Scripts/chopstick.gd" id="1_wwvb5"]
+[ext_resource type="Texture2D" uid="uid://ccs42yl0lhtte" path="res://Assets/Image/Chopstick/chopstick.png" id="2_v8dln"]
+
+[node name="Chopstick" type="CharacterBody2D"]
+script = ExtResource("1_wwvb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_v8dln")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -243, 9, -243, 1, 243, -5, 243)

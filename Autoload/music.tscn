@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhy37wor0ncbc"]
+
+[ext_resource type="AudioStream" uid="uid://scxkwlc5paht" path="res://Assets/Audio/Music/Flowing Rocks.ogg" id="1_8yhy4"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_8yhy4")
+autoplay = true
+bus = &"Music"

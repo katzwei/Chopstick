@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06hnj4pdd137"]
+
+[ext_resource type="Script" path="res://Scripts/victory.gd" id="1_c7m25"]
+[ext_resource type="FontFile" uid="uid://dq8cr4en05khy" path="res://Assets/Font/Kenney Bold.ttf" id="1_tgtl7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5540v"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 0.498039)
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7m25")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5540v")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tgtl7")
+theme_override_font_sizes/font_size = 48
+text = "CONGRATULATIONS!"
+
+[node name="ScoreValue" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tgtl7")
+theme_override_font_sizes/font_size = 48
+text = "0000"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="PlayAgainButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_tgtl7")
+theme_override_font_sizes/font_size = 32
+text = "PLAY AGAIN"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tgtl7")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

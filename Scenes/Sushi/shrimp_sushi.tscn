@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmbtgf0myidal"]
+
+[ext_resource type="PackedScene" uid="uid://dn84mgi56kwii" path="res://Scenes/Sushi/sushi.tscn" id="1_tgm1h"]
+[ext_resource type="Texture2D" uid="uid://ceos7282banjw" path="res://Assets/Image/Sushi/Shrimp/shrimp_sushi_eat.png" id="2_0k2vg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm5oq"]
+atlas = ExtResource("2_0k2vg")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1reb5"]
+atlas = ExtResource("2_0k2vg")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xraht"]
+atlas = ExtResource("2_0k2vg")
+region = Rect2(800, 0, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xjnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm5oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1reb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xraht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sushi" instance=ExtResource("1_tgm1h")]
+value = 175
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3xjnp")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="3"]
+position = Vector2(0, 4)
+rotation = 1.5708
+polygon = PackedVector2Array(2, 96, -13, 73, -15, 79, -21, 63, -28, 53, -33, 27, -36, 8, -36, -16, -24, -41, -5, -60, 10, -73, 18, -70, 20, -61, 24, -57, 25, -52, 32, -51, 35, -43, 33, -40, 36, -36, 35, -22, 33, -1, 32, 6, 29, 10, 28, 16, 24, 23, 24, 29, 21, 40, 6, 50, 2.38419e-06, 52, -9, 45, -9, 63)

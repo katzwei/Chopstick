@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8rjgw4dgtvph"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_8mmj5"]
+[ext_resource type="PackedScene" uid="uid://b1ptqpa5v1741" path="res://Scenes/UI/Menu/menu.tscn" id="1_rtggc"]
+[ext_resource type="PackedScene" uid="uid://ddla5gobppyhl" path="res://Scenes/UI/Setting/setting.tscn" id="2_0c421"]
+[ext_resource type="PackedScene" uid="uid://ba53xpbc000xm" path="res://Scenes/UI/Credits/credits.tscn" id="4_5xsjp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8mmj5")
+
+[node name="Menu" parent="." instance=ExtResource("1_rtggc")]
+
+[node name="Setting" parent="." instance=ExtResource("2_0c421")]
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource("4_5xsjp")]
+visible = false
+
+[connection signal="show_credits" from="Menu" to="." method="_on_menu_show_credits"]
+[connection signal="show_options" from="Menu" to="." method="_on_menu_show_options"]
+[connection signal="go_back" from="Setting" to="." method="_on_setting_go_back"]
+[connection signal="go_back" from="Credits" to="." method="_on_credits_go_back"]

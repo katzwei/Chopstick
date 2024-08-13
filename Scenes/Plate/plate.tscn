@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://0s0byxyw3bpv"]
+
+[ext_resource type="Texture2D" uid="uid://bh6xtpedeuxsc" path="res://Assets/Image/Plate/sushi_tray.png" id="1_5u23k"]
+
+[node name="Plate" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_5u23k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-452, 30, -450, 41, -348, 85, 342, 87, 445, 45, 450, 32, 341, 48, -334, 46)

@@ -1,0 +1,269 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba53xpbc000xm"]
+
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_bdd0t"]
+[ext_resource type="FontFile" uid="uid://dq8cr4en05khy" path="res://Assets/Font/Kenney Bold.ttf" id="1_nt8jk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_airum"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bdd0t")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_airum")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../MarginContainer/BackButton")
+focus_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CreditsHead" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CreditsHead"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/CreditsHead"]
+layout_mode = 2
+
+[node name="Audiohead" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Audiohead"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 24
+text = "Audio"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Audiohead"]
+layout_mode = 2
+
+[node name="AudioItem1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AudioItem1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Crunch Sound"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AudioItem1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "\"crunch 4.wav\" by theplax https://freesound.org/s/608639"
+
+[node name="AudioItem2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AudioItem2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "\"Flowing Rocks\" music loop"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AudioItem2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "from the Kenney Game Assets"
+
+[node name="FontsHead" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FontsHead"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 24
+text = "Fonts"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FontsHead"]
+layout_mode = 2
+
+[node name="FontsItem1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FontsItem1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Kenney Blocks"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FontsItem1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "from the Kenney Game Assets"
+
+[node name="FontsItem2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FontsItem2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Kenney Bold"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/FontsItem2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "from the Kenney Game Assets"
+
+[node name="AssetsHead" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsHead"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 24
+text = "Assets"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsHead"]
+layout_mode = 2
+
+[node name="AssetsItem1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Mouth"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "designed by Freepik"
+
+[node name="AssetsItem2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Restaurant entrance"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "designed by Freepik"
+
+[node name="AssetsItem3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Restaurant inside"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "designed by Freepik"
+
+[node name="AssetsItem4" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Sushi plate"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "designed by Freepik"
+
+[node name="AssetsItem5" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Chopsticks"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "stolen from some online shop on google image"
+
+[node name="AssetsItem6" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nt8jk")
+theme_override_font_sizes/font_size = 16
+text = "Fork"
+
+[node name="Attribution" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AssetsItem6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "stolen from some online shop on google image"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "GO BACK"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_button_pressed"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

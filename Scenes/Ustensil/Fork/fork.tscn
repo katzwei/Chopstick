@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://ec4tseotjgs6"]
+
+[ext_resource type="PackedScene" uid="uid://dqavaf0ar6i0w" path="res://Scenes/Ustensil/ustensil.tscn" id="1_hce3b"]
+[ext_resource type="Script" path="res://Scripts/fork.gd" id="2_bwfp8"]
+[ext_resource type="Texture2D" uid="uid://cgj7xouvp6d0b" path="res://Assets/Image/Fork/fork.png" id="2_g65mf"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f3nml"]
+a = Vector2(0, 1)
+b = Vector2(96, -7.00001)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f74qr"]
+a = Vector2(-98, -12)
+b = Vector2(0, -1)
+
+[node name="Fork" instance=ExtResource("1_hce3b")]
+script = ExtResource("2_bwfp8")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_g65mf")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(0, -223, 17, -216, 12, 81, 31, 96, 32, 125, -34, 125, -32, 93, -10, 79, -15, -215)
+
+[node name="ForkSpikes" type="Area2D" parent="." index="2"]
+unique_name_in_owner = true
+position = Vector2(0, 165)
+disable_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ForkSpikes" index="0"]
+polygon = PackedVector2Array(-22, -38, 20, -38, 16, 27, -19, 27)
+
+[node name="SpikeJoint" type="GrooveJoint2D" parent="." index="3"]
+unique_name_in_owner = true
+position = Vector2(0, 100)
+rotation = -3.14159
+node_a = NodePath("..")
+initial_offset = 5.0
+
+[node name="LeftSpike" type="CollisionShape2D" parent="." index="4"]
+unique_name_in_owner = true
+position = Vector2(-35, 127)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_f3nml")
+disabled = true
+one_way_collision = true
+
+[node name="RightSpike" type="CollisionShape2D" parent="." index="5"]
+unique_name_in_owner = true
+position = Vector2(35, 127)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_f74qr")
+disabled = true
+one_way_collision = true
+
+[connection signal="body_entered" from="ForkSpikes" to="." method="_on_fork_spikes_body_entered"]
